@@ -1,7 +1,8 @@
 import { IoIosArrowForward } from "react-icons/io";
 import React, { useState } from "react";
 import { SimpleMap } from "./components/SimpleMap";
-import Image from "./assets/images/pattern-bg-desktop.png";
+import Image from "/pattern-bg-desktop.png"
+
 
 type ipAddressData = {
   ip: string;
@@ -46,7 +47,7 @@ const App = () => {
     <main className="relative">
       <img
         src={Image}
-        alt=""
+        alt="background-image"
         className="w-full h-80 md:h-60 object-cover"
       />
       <div>
