@@ -46,11 +46,11 @@ const App = () => {
       <img
         src="./src/assets/images/pattern-bg-desktop.png"
         alt=""
-        className="w-full h-60 object-cover"
+        className="w-full h-80 md:h-60 object-cover"
       />
       <div>
         <div className="absolute top-0 mt-10 mx-auto w-full flex flex-col justify-center items-center">
-          <h1 className="text-white text-lg text center mb-5">
+          <h1 className="text-white text-lg md:text-2xl text center pt-5 mb-5 font-bold">
             IP Address Tracker
           </h1>
           <form
@@ -60,46 +60,47 @@ const App = () => {
             <input
               onChange={handleInputChange}
               type="text"
-              className="mx-auto w-60 md:w-2xl md:text-center h-10 bg-white outline-none top-0 rounded-l-xl"
+              placeholder="Search for any IP address or domain"
+              className="font-primary placeholder:text-gray-500 placeholder:text-sm placeholder:font-light p-5 py-6 md:py-5 mx-auto w-60 md:w-sm h-10 bg-white outline-none top-0 rounded-l-xl"
             />
-            <div className="bg-black w-[43px] h-[41.5px] flex items-center justify-center rounded-r-xl cursor-pointer hover:bg-black/70 transition-all duration-300">
+            <div onClick={fetchingIpAddress} className="bg-black w-[43px] h-[48px] md:h-[41.3px] flex items-center justify-center rounded-r-xl cursor-pointer hover:bg-black/70 transition-all duration-300">
               <IoIosArrowForward className="text-lg text-white hover:animate-ping" />
             </div>
           </form>
 
-          <div className="bg-white flex flex-col md:flex-row items-center justify-center mt-10 *:py-4 *:px-10 *:text-center rounded-xl p-8">
-            <div className=" w-70 md:max-w-50">
-              <p className="text-xs uppercase text-gray-500 font-medium">
-                Ip Address
-              </p>
-              <h2>{ipAddressData?.ip}</h2>
-              <hr className="border border-gray-500/20 " />
+          <div className="bg-white shadow-lg flex flex-col md:flex-row items-center justify-center py-5 px-6 md:px-0 mt-6 *:text-center md:*:text-start md:*:pl-4 rounded-xl font-primary">
+            <div className=" w-70 md:h-20 md:max-h-20 md:max-w-50 mb-5">
+              <h3 className="text-xs tracking-widest uppercase text-gray-500/80 font-bold font-mono pb-1">
+                Ip<span className="font-primary"> </span>Address
+              </h3>
+              <p className="font-bold font-primary text-[hsl(218,23%,16%)] text-xl">{ipAddressData?.ip || "IP Address"}</p>
+              
             </div>
-            <div className="w-70 md:max-w-50">
-              <p className="text-xs uppercase text-gray-500 font-medium">
+            <div className="w-70 md:h-20 md:max-h-20 md:max-w-50 md:border-l border-gray-500/30 mb-5">
+              <h3 className="text-xs uppercase text-gray-500/80 font-semibold font-mono tracking-widest pb-1">
                 Location
-              </p>
-              <h2>
+              </h3>
+              <p className="font-bold text-[hsl(218,23%,16%)] text-xl">
                 {ipAddressData
                   ? ipAddressData.location.region +
                     ", " +
                     ipAddressData?.location.country
                   : "Location"}
-              </h2>
-              <hr className="border border-gray-500/20 " />
-            </div>
-            <div className="w-70 md:max-w-50">
-              <p className="text-xs uppercase text-gray-500 font-medium">
-                TimeZone
               </p>
-              <h2>{ipAddressData?.location.timezone || "timezone"}</h2>
-              <hr className="border border-gray-500/20 " />
+              
             </div>
-            <div className="w-70 md:max-w-50">
-              <p className="text-xs uppercase text-gray-500 font-medium">ISP</p>
-              <h2>GilRevv Ltd.</h2>
-              {/* {ipAddressData?.isp || "GilRevv"} */}
-              <hr className="border border-gray-500/20" />
+            <div className="w-70 md:h-20 md:max-h-20 md:max-w-50 md:border-l border-gray-500/30 mb-5">
+              <h3 className="text-xs uppercase text-gray-500/80 font-semibold pb-1 font-mono">
+                TimeZone
+              </h3>
+              <p className="font-bold text-xl text-[hsl(218,23%,16%)]">{ipAddressData? `UTC ${ipAddressData?.location.timezone}`: "Timezone"}</p>
+              
+            </div>
+            <div className="w-70 md:h-20 md:max-h-20 md:max-w-50 md:border-l border-gray-500/30 mb-5">
+              <h3 className="text-xs uppercase text-gray-500/80 font-semibold pb-1 font-mono">ISP</h3>
+              {/* <h2>GilRevv Ltd.</h2> */}
+              <p className="font-bold text-xl text-[hsl(218,23%,16%)]">{ipAddressData?.isp || "GilRevv Ltd."}</p>
+              
             </div>
           </div>
         </div>
