@@ -63,7 +63,7 @@ const App = () => {
               onChange={handleInputChange}
               type="text"
               placeholder="Search for any IP address or domain"
-              className="font-primary placeholder:text-gray-500 placeholder:text-sm placeholder:font-light p-5 py-6 md:py-5 mx-auto w-60 md:w-sm h-10 bg-white outline-none top-0 rounded-l-xl"
+              className="font-primary placeholder:text-xs placeholder:text-gray-500 md:placeholder:text-sm placeholder:font-light p-5 py-6 md:py-5 mx-auto w-60 md:w-sm h-10 bg-white outline-none top-0 rounded-l-xl"
             />
             <div onClick={fetchingIpAddress} className="bg-black w-[43px] h-[48px] md:h-[41.3px] flex items-center justify-center rounded-r-xl cursor-pointer hover:bg-black/70 transition-all duration-300">
               <IoIosArrowForward className="text-lg text-white hover:animate-ping" />
